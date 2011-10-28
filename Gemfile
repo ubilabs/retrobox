@@ -12,6 +12,7 @@ end
 gem 'jquery-rails'
 gem 'haml'
 gem 'haml-rails'
+gem 'twitter-bootstrap-rails'
 
 gem 'devise'
 gem 'omniauth'
