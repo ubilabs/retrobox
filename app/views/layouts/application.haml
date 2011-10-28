@@ -23,7 +23,7 @@
               = link_to "Sign out (#{current_user.email})" , destroy_user_session_path, :method => :delete
           - else
             %form.pull-right
-              %a.btn.primary{:href => "/users/auth/google_apps"} Sign in
+              %a.btn.primary{:href => user_omniauth_authorize_path(:google_apps)} Sign in
 
     .container
       .content
