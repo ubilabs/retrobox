@@ -10,7 +10,7 @@
     .topbar
       .fill
         .container
-          %a{:class => "brand", :href => ""}= title
+          %a{:class => "brand", :href => "/"}= title
           %ul.nav
             %li.active
               %a(href = "/") Home
@@ -18,11 +18,13 @@
               %a{:href => "/"} Dummy
             %li
               %a{:href => "/"} Dummy
-          %p.pull-right
-            - if current_user
-              = current_user.email
-            - else
-              %a{:href => "/users/auth/google_apps", :class => "primary btn"} Sign in
+          - if current_user
+            %p.pull-right
+              = "Logged in as " + current_user.email
+              = link_to "Sign out", destroy_user_session_path, :method => :delete
+          - else
+            %form.pull-right
+              %a.btn.primary{:href => "/users/auth/google_apps"} Sign in
 
     .container
       .content
