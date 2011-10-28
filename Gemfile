@@ -16,7 +16,7 @@ gem 'haml-rails'
 gem 'devise'
 gem 'omniauth'
 
-group :test do
+group :test, :development do
   gem 'database_cleaner'
   gem 'rspec-rails'
   gem 'factory_girl_rails'
