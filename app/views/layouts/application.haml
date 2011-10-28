@@ -11,17 +11,18 @@
       .fill
         .container
           %a{:class => "brand", :href => ""}= title
-          %ul(class="nav")
-            %li(class="active")
+          %ul.nav
+            %li.active
               %a(href = "/") Home
             %li
-              %a(href = "/") About
+              %a{:href => "/"} Dummy
             %li
-              %a(href = "/") Contact
-          %form{:action => "", :class => "pull-right"}
-            %input{:class => "input-small", :type => "text", :placeholder => "Username"}
-            %input{:class => "input-small", :type => "password", :placeholder => "Password"}
-            %button{:class => "btn", :type => "submit"} Sign in
+              %a{:href => "/"} Dummy
+          %p.pull-right
+            - if current_user
+              = current_user.email
+            - else
+              %a{:href => "/users/auth/google_apps", :class => "primary btn"} Sign in
 
     .container
       .content
