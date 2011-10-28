@@ -1,4 +1,4 @@
-class OmniauthCallbacksController < Devise::OmniauthCallbacksController
+class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def google_apps
     @user = User.find_for_google_apps_oauth(env["omniauth.auth"], current_user)
 
