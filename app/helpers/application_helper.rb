@@ -12,4 +12,12 @@ module ApplicationHelper
       end
     end
   end
+
+  def account_button
+    if user_signed_in?
+      link_to 'Sign out', destroy_user_session_path, :method => :delete, :class => 'btn danger'
+    else
+      link_to 'Sign in', user_omniauth_authorize_path(:google_apps), :class => 'btn primary'
+    end
+  end
 end

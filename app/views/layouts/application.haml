@@ -14,12 +14,8 @@
           %ul.nav
             %li.active
               %a(href = "/") Home
-          - if current_user
-            %p.pull-right
-              = link_to "Sign out (#{current_user.full_name})" , destroy_user_session_path, :method => :delete
-          - else
-            %form.pull-right
-              %a.btn.primary{:href => user_omniauth_authorize_path(:google_apps)} Sign in
+          %form.pull-right
+            = account_button
 
     .container
       .content
