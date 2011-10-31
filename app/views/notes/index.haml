@@ -5,7 +5,7 @@
       %th User
       %th Text
   %tbody
-    - @notes.each do |note|
+    - collection.each do |note|
       %tr
         %td= find_label_by_type(note.type)
         %td= note.user.full_name
