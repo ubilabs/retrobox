@@ -14,6 +14,8 @@ gem 'haml'
 gem 'haml-rails'
 gem 'twitter-bootstrap-rails'
 
+gem 'inherited_resources'
+
 gem 'devise'
 gem 'omniauth'
 
