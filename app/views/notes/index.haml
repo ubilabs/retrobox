@@ -1,13 +1,12 @@
 %table.zebra-striped
   %thead
     %tr
-      %th #
+      %th Type
       %th User
       %th Text
   %tbody
     - @notes.each do |note|
       %tr
-        %td
-          %span{:class => find_label_by_type(note.type)}= note.id
+        %td= find_label_by_type(note.type)
         %td= note.user.full_name
         %td= note.text
