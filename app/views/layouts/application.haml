@@ -11,9 +11,7 @@
       .fill
         .container
           %a{:class => "brand", :href => "/"}= title
-          %ul.nav
-            %li.active
-              %a(href = "/") Home
+          = navigation
           %form.pull-right
             = account_button
 
