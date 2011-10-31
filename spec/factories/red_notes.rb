@@ -1,8 +1,8 @@
 # Read about factories at http://github.com/thoughtbot/factory_girl
 
 FactoryGirl.define do
-  factory :note do
-    text "Something someone wanted to say"
+  factory :red_note do
+    text "Something the user doesn't like."
     unsolved false
   end
 end
