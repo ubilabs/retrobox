@@ -10,7 +10,7 @@ describe User do
     it { Factory.build(:user).should be_valid }
   end
 
-  # describe 'associations' do
-  #   it { should have_many(:notes) }
-  # end
+  describe 'associations' do
+    it { should have_many(:notes) }
+  end
 end
