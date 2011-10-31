@@ -1,0 +1,2 @@
+class GreenNote < Note
+end
