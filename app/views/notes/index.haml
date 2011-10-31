@@ -1,0 +1,12 @@
+%table.zebra-striped
+  %thead
+    %tr
+      %th #
+      %th User
+      %th Text
+  %tbody
+    - @notes.each do |note|
+      %tr
+        %td= note.id
+        %td= note.user.full_name
+        %td= note.text
