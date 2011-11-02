@@ -1,3 +1,4 @@
+%p= link_to 'Add new', new_note_path, :class => 'btn primary'
 %table.zebra-striped
   %thead
     %tr
@@ -8,5 +9,5 @@
     - collection.each do |note|
       %tr
         %td= find_label_by_type(note.type)
-        %td= note.user.full_name
+        %td= note.user
         %td= note.text
