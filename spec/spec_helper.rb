@@ -22,6 +22,9 @@ RSpec.configure do |config|
   # rspec-rails.
   config.infer_base_class_for_anonymous_controllers = false
 
+  # Include devise test helpers
+  config.include Devise::TestHelpers, :type => :controller
+
   config.before(:suite) do
     OmniAuth.config.test_mode = true
     DatabaseCleaner.strategy = :truncation
