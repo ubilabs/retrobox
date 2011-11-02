@@ -2,6 +2,7 @@
 
 FactoryGirl.define do
   factory :red_note do
+    user { Factory.create :user }
     text "Something the user doesn't like."
     unsolved false
   end
