@@ -5,8 +5,8 @@ module ApplicationHelper
 
   def navigation
     content_tag(:ul, :class => 'nav') do
-      concat(build_nav_entry('Home', home_index_path, 'home'))
-      concat(build_nav_entry('Notes', notes_path, 'notes'))
+      concat(build_nav_entry('Home', root_path, 'home'))
+      concat(build_nav_entry('Notes', notes_path, 'notes')) if user_signed_in?
     end
   end
 
@@ -28,9 +28,9 @@ module ApplicationHelper
     end
   end
 
-  private
+  protected
 
   def build_nav_entry(nav_title, nav_path, nav_controller)
-      content_tag(:li, content_tag(:a, nav_title, :href => nav_path), :class => (current_page?(:controller => nav_controller) ? 'active' : ''))
+      content_tag(:li, content_tag(:a, nav_title, :href => nav_path), :class => (controller.controller_name == nav_controller ? 'active' : ''))
   end
 end
