@@ -14,6 +14,8 @@ gem 'haml'
 gem 'haml-rails'
 gem 'twitter-bootstrap-rails'
 
+gem 'simple_form', :git => 'git://github.com/plataformatec/simple_form.git'
+
 gem 'inherited_resources'
 
 gem 'devise'
