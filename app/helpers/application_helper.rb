@@ -16,7 +16,7 @@ module ApplicationHelper
 
   def flash_message
     unless flash.keys.empty?
-      mapping = {:notice => "warning", :error => "error", :success => "success" }
+      mapping = {:notice => "info", :error => "error", :success => "success" }
       content_tag(:div, :class => "alert-message #{mapping[flash.keys.first]}", :"data-alert" => "alert") do
         concat(content_tag(:a, "x", :class => "close", :href => "#"))
         concat(content_tag(:p, flash[flash.keys.first]))
