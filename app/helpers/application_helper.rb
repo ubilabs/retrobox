@@ -24,14 +24,6 @@ module ApplicationHelper
     end
   end
 
-  def account_button
-    if user_signed_in?
-      link_to 'Sign out', destroy_user_session_path, :method => :delete, :class => 'btn'
-    else
-      link_to 'Sign in', user_omniauth_authorize_path(:google_apps), :class => 'btn primary'
-    end
-  end
-
   protected
 
   def build_nav_entry(nav_title, nav_path, nav_controller)
