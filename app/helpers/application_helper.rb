@@ -3,6 +3,10 @@ module ApplicationHelper
     "The Retrobox"
   end
 
+  def header(text)
+    content_for(:header) { text }
+  end
+
   def navigation
     content_tag(:ul, :class => 'nav') do
       concat(build_nav_entry('Home', root_path, 'home'))

@@ -21,8 +21,8 @@
     .container
       .content
         .page-header
-          %h1= title
           = flash_message
+          %h1= yield :header
         .row
           .span14
             = yield
