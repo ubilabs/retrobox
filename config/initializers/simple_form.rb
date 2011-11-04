@@ -20,7 +20,7 @@ SimpleForm.setup do |config|
 
   # Tell browsers whether to use default HTML5 validations (novalidate option).
   # Default is enabled.
-  config.browser_validations = true
+  config.browser_validations = false
 
   # Default class for buttons
   config.button_class = 'btn large'
