@@ -12,7 +12,7 @@ describe NotesController do
       sign_in Factory.create(:user)
 
       get 'index'
-      response.should be_success
+      response.should render_template('index')
     end
   end
 

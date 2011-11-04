@@ -12,7 +12,7 @@ describe RedNotesController do
       sign_in Factory.create(:user)
 
       get 'new'
-      response.should be_success
+      response.should render_template('new')
     end
   end
 
