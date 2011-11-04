@@ -13,6 +13,9 @@
           %a{:class => "brand", :href => "/"}= title
           = navigation
           %form.pull-right
+            - if user_signed_in?
+              = link_to "I'm happy", new_green_note_path, :class => 'btn success'
+              = link_to "Puke into the box", new_red_note_path, :class => 'btn danger'
             = account_button
 
     .container

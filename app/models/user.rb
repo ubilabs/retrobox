@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
   has_many :notes
+  has_many :green_notes
+  has_many :red_notes
 
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :trackable, :validatable, :omniauthable
