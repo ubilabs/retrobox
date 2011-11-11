@@ -7,6 +7,12 @@ class NotesController < InheritedResources::Base
     end
   end
 
+  def destroy
+    destroy! do |format|
+      format.html { redirect_to notes_path }
+    end
+  end
+
   protected
 
     def begin_of_association_chain
