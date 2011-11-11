@@ -1,13 +1,17 @@
-- header 'List all notes'
+- header 'All notes'
 %table.zebra-striped
   %thead
     %tr
       %th Type
-      %th User
+      - if current_user.admin
+        %th User
       %th Text
+      %th
   %tbody
     - collection.each do |note|
       %tr
         %td= find_label_by_type(note.type)
-        %td= note.user
+        - if current_user.admin
+          %td= note.user
         %td= note.text
+        %td #{link_to "show", polymorphic_path(note)} | #{link_to "delete", polymorphic_path(note), :method => :delete, :confirm => "Do you relly want to delete?"}
