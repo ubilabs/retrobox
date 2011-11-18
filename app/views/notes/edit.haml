@@ -1,0 +1,8 @@
+- header "Edit #{controller.controller_name.singularize.humanize}"
+= simple_form_for resource, :wrapper => :inline do |f|
+  .inputs
+    = f.input :text, :input_html => { :class => 'span9' }
+    - if current_user.admin
+      = f.input :category_list, :input_html => { :class => 'span9' }
+  .actions
+    = f.button :submit, :class => 'primary'
