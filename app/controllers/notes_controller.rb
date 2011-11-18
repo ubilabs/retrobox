@@ -5,6 +5,10 @@ class NotesController < InheritedResources::Base
     create!{ notes_path }
   end
 
+  def update
+    update!{ notes_path }
+  end
+
   def destroy
     destroy!{ notes_path }
   end
