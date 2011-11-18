@@ -1,9 +1,11 @@
-- header 'All notes'
+- header "#{current_user.admin ? 'All' : 'Your'} notes"
+= category_tabs if current_user.admin
 %table.zebra-striped
   %thead
     %tr
       %th Type
       - if current_user.admin
+        %th Category
         %th User
       %th Text
       %th
@@ -12,6 +14,12 @@
       %tr
         %td= find_label_by_type(note.type)
         - if current_user.admin
+          %td
+            - note.category_list.each do |category|
+              %span.label= category
           %td= note.user
         %td= note.text
-        %td #{link_to "show", polymorphic_path(note)} | #{link_to "delete", polymorphic_path(note), :method => :delete, :confirm => "Do you relly want to delete?"}
+        %td
+          = link_to "show", polymorphic_path(note), :class => 'btn small'
+          = link_to "edit", edit_polymorphic_path(note), :class => 'btn small'
+          = link_to "delete", polymorphic_path(note), :method => :delete, :confirm => "Really delete?", :class => 'btn small'

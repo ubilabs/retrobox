@@ -1,21 +1,24 @@
 class NotesController < InheritedResources::Base
   before_filter { redirect_to root_path unless user_signed_in? }
 
+  has_scope :category
+
   def create
-    create! do |format|
-      format.html { redirect_to notes_path }
-    end
+    create!{ notes_path }
+  end
+
+  def update
+    update!{ notes_path }
   end
 
   def destroy
-    destroy! do |format|
-      format.html { redirect_to notes_path }
-    end
+    destroy!{ notes_path }
   end
 
   protected
 
-    def begin_of_association_chain
-      current_user unless current_user.admin
-    end
+  def begin_of_association_chain
+    current_user unless current_user.admin
+  end
+
 end
