@@ -11,6 +11,7 @@ module ApplicationHelper
     content_tag(:ul, :class => 'nav') do
       concat(build_nav_entry('Home', root_path, 'home'))
       concat(build_nav_entry('Notes', notes_path, ['notes', 'green_notes', 'red_notes'])) if user_signed_in?
+      concat(build_nav_entry('Admin', admin_index_path, 'admin')) if current_user.try(:admin)
     end
   end
 

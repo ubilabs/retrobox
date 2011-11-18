@@ -4,6 +4,7 @@ Retrobox::Application.routes.draw do
   resources :notes, :only => :index
   resources :green_notes
   resources :red_notes
+  resources :admin
 
   root :to => "home#index"
 end
