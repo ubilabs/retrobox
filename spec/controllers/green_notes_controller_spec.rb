@@ -19,7 +19,7 @@ describe GreenNotesController do
   describe "POST 'create'" do
     it "should redirect to index after create" do
       sign_in Factory.create(:user)
-      post 'create', :text => "it's great"
+      post 'create', :green_note => { :text => "it's great" }
 
       response.should redirect_to(notes_path)
     end
