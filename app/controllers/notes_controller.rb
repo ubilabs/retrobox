@@ -1,7 +1,7 @@
 class NotesController < InheritedResources::Base
   before_filter { redirect_to root_path unless user_signed_in? }
 
-  has_scope :tagged_with
+  has_scope :category
 
   def create
     create!{ notes_path }
