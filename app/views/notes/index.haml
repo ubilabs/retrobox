@@ -1,5 +1,5 @@
 - header "#{current_user.admin ? 'All' : 'Your'} notes"
-= category_tabs
+= category_tabs if current_user.admin
 %table.zebra-striped
   %thead
     %tr
