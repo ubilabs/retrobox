@@ -263,10 +263,12 @@ DEPENDENCIES
   factory_girl_rails
   haml
   haml-rails
+  has_scope
   inherited_resources
   jquery-rails
   omniauth
   rails (= 3.1.1)
+  responders
   rspec-rails
   sass-rails (~> 3.1.4)
   shoulda-matchers
