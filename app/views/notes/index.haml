@@ -4,8 +4,8 @@
   %thead
     %tr
       %th Type
-      %th Category
       - if current_user.admin
+        %th Category
         %th User
       %th Text
       %th
@@ -13,10 +13,10 @@
     - collection.each do |note|
       %tr
         %td= find_label_by_type(note.type)
-        %td
-          - note.category_list.each do |category|
-            %span.label= category
         - if current_user.admin
+          %td
+            - note.category_list.each do |category|
+              %span.label= category
           %td= note.user
         %td= note.text
         %td
