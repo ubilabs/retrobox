@@ -19,7 +19,6 @@ gem 'simple_form', :git => 'git://github.com/plataformatec/simple_form.git'
 gem 'acts-as-taggable-on'
 gem 'inherited_resources'
 gem 'has_scope'
-gem 'responders'
 
 gem 'devise'
 gem 'omniauth'
