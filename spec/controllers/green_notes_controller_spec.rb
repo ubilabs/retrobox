@@ -25,6 +25,18 @@ describe GreenNotesController do
     end
   end
 
+  describe "POST 'update'" do
+    it "should redirect to index after update" do
+      user = Factory.create(:user)
+      sign_in user
+      green_note = Factory(:green_note, :user => user)
+
+      post 'update', :id => green_note.id, :green_note => { :text => "yeeehaa" }
+
+      response.should redirect_to(notes_path)
+    end
+  end
+
   describe "DELETE 'destroy'" do
     it "should redirect to index after destroy" do
       user = Factory.create(:user)
