@@ -4,4 +4,6 @@ class Note < ActiveRecord::Base
   validates_presence_of :user, :text
 
   attr_accessible :text, :unsolved
+
+  acts_as_taggable_on :categories
 end
