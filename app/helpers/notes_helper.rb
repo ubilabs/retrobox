@@ -1,4 +1,5 @@
 module NotesHelper
+
   def find_label_by_type(type)
     case type
     when 'RedNote'
@@ -7,4 +8,5 @@ module NotesHelper
       content_tag(:span, 'Good', :class => 'label success')
     end
   end
+
 end

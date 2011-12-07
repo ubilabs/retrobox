@@ -1,0 +1,8 @@
+- header "Edit note categories"
+= simple_form_for resource, :url => admin_path(resource), :as => :admin, :wrapper => :inline do |f|
+  .inputs
+    = f.input :user, :input_html => { :class => 'span9', :disabled => true }
+    = f.input :text, :input_html => { :class => 'span9', :disabled => true }
+    = f.input :category_list, :input_html => { :class => 'span9' }
+  .actions
+    = f.button :submit, :class => 'primary'
