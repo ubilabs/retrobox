@@ -1,1 +1,8 @@
-= debug resource
+%pre
+  = find_label_by_type(resource.type)
+  %p= resource.text
+  %p= "Author: #{resource.user.full_name}"
+
+= render_comments resource
+
+= render_comments_form resource

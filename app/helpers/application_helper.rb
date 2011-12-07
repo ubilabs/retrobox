@@ -27,6 +27,6 @@ module ApplicationHelper
   protected
 
   def build_nav_entry(nav_title, nav_path, nav_controller)
-      content_tag(:li, content_tag(:a, nav_title, :href => nav_path), :class => (nav_controller.include?(controller.controller_name) ? 'active' : ''))
+    content_tag(:li, content_tag(:a, nav_title, :href => nav_path), :class => (nav_controller.include?(controller.controller_name) ? 'active' : ''))
   end
 end

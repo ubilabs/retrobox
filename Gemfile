@@ -21,6 +21,9 @@ gem 'inherited_resources'
 gem 'devise'
 gem 'omniauth'
 
+gem 'kaminari'
+gem 'opinio', :git => "git://github.com/suchasurge/opinio.git"
+
 group :test, :development do
   gem 'database_cleaner'
   gem 'rspec-rails'
