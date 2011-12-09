@@ -12,7 +12,10 @@
   %tbody
     - collection.each do |note|
       %tr
-        %td= find_label_by_type(note.type)
+        %td
+          = find_label_by_type(note.type)
+          - if note.unsolved?
+            %span{:class => "label notice"} unsolved
         %td
           - note.category_list.each do |category|
             %span.label= category
