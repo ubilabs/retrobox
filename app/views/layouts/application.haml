@@ -24,7 +24,11 @@
       .content
         .page-header
           = flash_message
-          %h1= yield :header
+          %h1.row
+            .span8
+              = yield :header
+            .span8
+              .pull-right= yield :big_blue_button
         .row
           .span16
             = yield

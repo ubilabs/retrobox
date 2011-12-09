@@ -7,6 +7,12 @@ module ApplicationHelper
     content_for(:header) { text }
   end
 
+  def big_blue_button(text, path)
+    content_for(:big_blue_button) do
+      link_to text, path, :class => [:btn, :large, :primary]
+    end
+  end
+
   def navigation
     content_tag(:ul, :class => 'nav') do
       concat(build_nav_entry('Home', root_path, 'home'))

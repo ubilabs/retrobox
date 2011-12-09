@@ -1,4 +1,5 @@
 - header 'Administration'
+- big_blue_button 'Finish Retro', root_path
 = category_tabs
 %table.zebra-striped
   %thead
@@ -20,4 +21,3 @@
         %td
           = link_to 'Edit', edit_admin_path(note), :class => 'btn small'
           = link_to 'Delete', admin_path(note), :method => :delete, :confirm => "Really delete?", :class => 'btn small'
-%div= link_to 'Finish this retrospective!', root_path, :class => 'btn large primary'
