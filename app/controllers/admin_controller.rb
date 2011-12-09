@@ -3,6 +3,8 @@ class AdminController < InheritedResources::Base
 
   defaults :resource_class => Note
 
+  custom_actions :collection => :finish
+
   has_scope :category
   has_scope :retrospective
 
@@ -16,6 +18,12 @@ class AdminController < InheritedResources::Base
 
   def destroy
     destroy!{ admin_index_path }
+  end
+
+  def finish
+    collection.each { |note| note.update_attributes :retrospective=> Date.today.strftime("retro-%d-%m-%y") }
+    flash[:success] = 'Nice job finishing that retro!'
+    redirect_to admin_index_path
   end
 
 end

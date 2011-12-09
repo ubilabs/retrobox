@@ -9,7 +9,7 @@ module ApplicationHelper
 
   def big_blue_button(text, path)
     content_for(:big_blue_button) do
-      link_to text, path, :class => [:btn, :large, :primary]
+      link_to text, path, :class => [:btn, :large, :primary], :confirm => 'Finish the retrospective?'
     end
   end
 
