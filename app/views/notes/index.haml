@@ -1,15 +1,3 @@
 - header 'Your notes'
-%table.zebra-striped
-  %thead
-    %tr
-      %th Type
-      %th Text
-      %th
-  %tbody
-    - collection.each do |note|
-      %tr
-        %td= find_label_by_type(note.type)
-        %td= note.text
-        %td
-          = link_to 'Edit', edit_polymorphic_path(note), :class => 'btn small'
-          = link_to 'Delete', polymorphic_path(note), :method => :delete, :confirm => "Really delete?", :class => 'btn small'
+- collection.each do |resource|
+  = styled_label_for resource, :index_view

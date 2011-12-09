@@ -6,7 +6,6 @@ class AdminController < InheritedResources::Base
   custom_actions :collection => :finish
 
   has_scope :category
-  has_scope :retrospective
 
   def create
     create!{ admin_index_path }
@@ -21,7 +20,8 @@ class AdminController < InheritedResources::Base
   end
 
   def finish
-    collection.each { |note| note.update_attributes :retrospective=> Date.today.strftime("retro-%d-%m-%y") }
+    @notes = end_of_association_chain.current_without_unsolved
+    collection.each { |note| note.update_attributes :retrospective => Date.today.strftime("retro-%d-%m-%y") }
     flash[:success] = 'Nice job finishing that retro!'
     redirect_to admin_index_path
   end
@@ -29,7 +29,7 @@ class AdminController < InheritedResources::Base
   protected
 
   def collection
-    @notes ||= end_of_association_chain.current_retrospective
+    @notes ||= end_of_association_chain.current_with_unsolved
   end
 
 end
