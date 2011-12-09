@@ -11,6 +11,5 @@
         %td= find_label_by_type(note.type)
         %td= note.text
         %td
-          = link_to 'Show', polymorphic_path(note), :class => 'btn small'
           = link_to 'Edit', edit_polymorphic_path(note), :class => 'btn small'
           = link_to 'Delete', polymorphic_path(note), :method => :delete, :confirm => "Really delete?", :class => 'btn small'

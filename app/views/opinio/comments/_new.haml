@@ -2,7 +2,7 @@
   = form_for Comment.new, :remote => true, :wrapper => :inline, :html => {:class => "form-stacked"} do |f|
     %fieldset
       %legend Create new Comment
-      = f.text_area :body, :class => 'xxlarge', :rows => "10"
+      = f.text_area :body, :class => 'xxlarge', :rows => "10", :class => "span7"
       = hidden_field_tag :commentable_id, commentable.id
       = hidden_field_tag :commentable_type, commentable.class.base_class.name.to_s
     .actions
