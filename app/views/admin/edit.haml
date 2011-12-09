@@ -1,14 +1,18 @@
-- header "Edit note categories"
+- header "Manage note"
 = styled_label_for(resource)
 = render_comments resource
 .row
   .span8
     = simple_form_for resource, :url => admin_path(resource), :as => :admin, :wrapper => :inline, :html => {:class => "form-stacked"} do |f|
       %fieldset
-        %legend Category list
-        .inputs
-          = f.input :category_list, :label => false, :input_html => { :class => 'span6' }
-      .actions
+        %legend Categories and Status
+        .clearfix
+          .input-append
+            = f.text_field "", :value => "unsolved", :id => "appendedInput", :class => "mini", :name => ""
+            %label{:class => "add-on #{resource.unsolved? ? "" : "active"}"}
+              = f.check_box :unsolved
+        = f.input :category_list, :input_html => { :class => 'span6' }
+        .actions
         = f.button :submit, :class => 'primary'
 
   .span8
