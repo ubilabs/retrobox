@@ -5,9 +5,6 @@ gem 'rails', '3.1.1'
 group :production do
   gem 'pg'
 end
-group :development, :test do
-  gem 'sqlite3'
-end
 
 group :assets do
   gem 'sass-rails',   '~> 3.1.4'
@@ -33,6 +30,7 @@ gem 'kaminari'
 gem 'opinio', :git => "git://github.com/suchasurge/opinio.git"
 
 group :test, :development do
+  gem 'sqlite3'
   gem 'database_cleaner'
   gem 'rspec-rails'
   gem 'factory_girl_rails'
