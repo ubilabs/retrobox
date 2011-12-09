@@ -20,7 +20,7 @@ class NotesController < InheritedResources::Base
   end
 
   def collection
-    @notes ||= end_of_association_chain.current_retrospective
+    @notes ||= end_of_association_chain.current_without_unsolved
   end
 
 end
