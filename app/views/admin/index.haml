@@ -1,0 +1,26 @@
+- header 'Administration'
+- big_blue_button 'Finish retrospective', finish_admin_index_path
+= category_tabs
+%table.zebra-striped
+  %thead
+    %tr
+      %th Type
+      %th Category
+      %th User
+      %th Text
+      %th
+  %tbody
+    - collection.each do |note|
+      %tr
+        %td
+          = find_label_by_type(note.type)
+          - if note.unsolved?
+            %span{:class => "label notice"} unsolved
+        %td
+          - note.category_list.each do |category|
+            %span.label= category
+        %td= note.user
+        %td= note.text
+        %td
+          = link_to 'Edit', edit_admin_path(note), :class => 'btn small'
+          = link_to 'Delete', admin_path(note), :method => :delete, :confirm => "Really delete?", :class => 'btn small'

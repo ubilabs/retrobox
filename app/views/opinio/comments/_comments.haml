@@ -1,0 +1,6 @@
+%ul{:id => "comments", :class => "unstyled"}
+  - unless comments.empty?
+    = render :partial => 'opinio/comments/comment', :collection => comments
+  - else
+    %div{:id => "no_comments", :class => "alert-message block-message info"}
+      %p= t 'opinio.no_comments_found', :default => "No comments found"

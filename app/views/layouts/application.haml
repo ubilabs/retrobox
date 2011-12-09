@@ -1,0 +1,36 @@
+!!! 5
+%html(lang="en")
+  %head
+    %title= title
+    = stylesheet_link_tag "application"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+
+  %body
+    .topbar
+      .fill
+        .container
+          %a{:class => "brand", :href => "/"}= title
+          = navigation
+          %form.pull-right
+            - if user_signed_in?
+              = link_to ":-)", new_green_note_path, :class => 'btn small success'
+              = link_to ":-(", new_red_note_path, :class => 'btn small danger'
+              = link_to 'Sign out', destroy_user_session_path, :method => :delete, :class => 'btn small'
+            - else
+              = link_to 'Sign in', user_omniauth_authorize_path(:google_apps), :class => 'btn small primary'
+
+    .container
+      .content
+        .page-header
+          = flash_message
+          %h1.row
+            .span8
+              = yield :header
+            .span8
+              .pull-right= yield :big_blue_button
+        .row
+          .span16
+            = yield
+      %footer
+        %p &copy; Ubilabs 2011

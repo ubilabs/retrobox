@@ -1,0 +1,2 @@
+class RedNote < Note
+end

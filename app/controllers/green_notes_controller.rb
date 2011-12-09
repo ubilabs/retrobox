@@ -1,0 +1,2 @@
+class GreenNotesController < NotesController
+end

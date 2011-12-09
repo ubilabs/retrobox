@@ -1,0 +1,2 @@
+class RedNotesController < NotesController
+end

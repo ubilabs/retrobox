@@ -1,0 +1,11 @@
+- reply = defined?(reply) ? reply : false
+%li{:id => "comment_#{comment.id}"}
+  %blockquote
+    %p= comment.body
+    %small= comment.owner.full_name
+    = link_to '(Destroy comment)', comment_path(comment), :method => :delete, :remote => true
+  -# this enables only 1 level of replies
+  - if Opinio.accept_replies && !reply
+    %span= link_to t("opinio.reply", :default => "Reply"), reply_comment_path(comment), :remote => true
+    %ul{:id => "comment_#{comment.id}_replies", :class => "replies"}
+      = render :partial => "opinio/comments/comment", :collection => comment.comments, :locals => {:reply => true}
