@@ -10,6 +10,6 @@ class Note < ActiveRecord::Base
   acts_as_taggable_on :categories
 
   scope :category, lambda { |tag| tagged_with tag, :on => :categories }
-  scope :current_with_unsolved, where("unsolved = 1 or retrospective = 'current'")
-  scope :current_without_unsolved, where("retrospective = 'current'")
+  scope :current_with_unsolved, :conditions => ["unsolved = ? or retrospective = 'current'", true]
+  scope :current_without_unsolved, :conditions => ["retrospective = 'current'"]
 end
