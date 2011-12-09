@@ -1,6 +1,8 @@
 Retrobox::Application.routes.draw do
   opinio_model
 
+  root :to => "home#index"
+
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   resources :admin do
@@ -13,6 +15,4 @@ Retrobox::Application.routes.draw do
   resources :red_notes do
     opinio
   end
-
-  root :to => "home#index"
 end
