@@ -19,4 +19,8 @@ class NotesController < InheritedResources::Base
     current_user
   end
 
+  def collection
+    @notes ||= end_of_association_chain.current_retrospective
+  end
+
 end

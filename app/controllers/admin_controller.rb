@@ -26,4 +26,10 @@ class AdminController < InheritedResources::Base
     redirect_to admin_index_path
   end
 
+  protected
+
+  def collection
+    @notes ||= end_of_association_chain.current_retrospective
+  end
+
 end
