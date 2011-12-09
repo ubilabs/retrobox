@@ -5,10 +5,10 @@ class Note < ActiveRecord::Base
 
   validates_presence_of :user, :text
 
-  attr_accessible :text, :unsolved, :category_list
+  attr_accessible :text, :unsolved, :category_list, :retrospective
 
-  acts_as_taggable_on :categories, :retrospectives
+  acts_as_taggable_on :categories
 
   scope :category, lambda { |tag| tagged_with tag, :on => :categories }
-  scope :retrospective, lambda { |tag| tagged_with tag, :on => :retrospectives }
+  scope :current_retrospective, where("unsolved = 1 or retrospective = 'current'")
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111118105530) do
+ActiveRecord::Schema.define(:version => 20111209121328) do
 
   create_table "comments", :force => true do |t|
     t.integer  "owner_id",         :null => false
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(:version => 20111118105530) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "retrospective", :default => "current"
   end
 
   add_index "notes", ["user_id"], :name => "index_notes_on_user_id"
