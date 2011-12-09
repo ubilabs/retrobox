@@ -6,7 +6,6 @@ class AdminController < InheritedResources::Base
   custom_actions :collection => :finish
 
   has_scope :category
-  has_scope :retrospective
 
   def create
     create!{ admin_index_path }
