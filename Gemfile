@@ -23,6 +23,8 @@ gem 'acts-as-taggable-on'
 gem 'inherited_resources'
 gem 'has_scope'
 
+gem "thin"
+
 gem 'devise'
 gem 'omniauth'
 
