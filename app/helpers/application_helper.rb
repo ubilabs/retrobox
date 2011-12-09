@@ -31,11 +31,17 @@ module ApplicationHelper
     end
   end
 
-  def styled_label_for(resource)
+  def styled_label_for(resource, index_view = nil)
     mapping = {"RedNote" => "error", "GreenNote" => "success" }
     content_tag(:div, :class => "alert-message block-message #{mapping[resource.type.to_s]}") do
-      concat(content_tag(:h2, resource.text))
-      concat(content_tag(:h6, "Author: #{resource.user.full_name}"))
+      concat(content_tag(:h2) do
+        concat(content_tag(:span, resource.text))
+        concat(content_tag(:span, :class => 'pull-right') do
+          concat(link_to 'Edit', edit_polymorphic_path(resource), :class => :btn)
+          concat(link_to 'Destroy', polymorphic_path(resource), :method => :delete, :confirm => 'Really delete?', :class => :btn)
+        end) if index_view
+      end)
+      concat(content_tag(:h6, "Author: #{resource.user.full_name}")) unless index_view
     end
   end
 
