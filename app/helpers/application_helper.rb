@@ -31,6 +31,14 @@ module ApplicationHelper
     end
   end
 
+  def styled_label_for(resource)
+    mapping = {"RedNote" => "error", "GreenNote" => "success" }
+    content_tag(:div, :class => "alert-message block-message #{mapping[resource.type.to_s]}") do
+      concat(content_tag(:h2, resource.text))
+      concat(content_tag(:h6, "Author: #{resource.user.full_name}"))
+    end
+  end
+
   protected
 
   def build_nav_entry(nav_title, nav_path, nav_controller)
